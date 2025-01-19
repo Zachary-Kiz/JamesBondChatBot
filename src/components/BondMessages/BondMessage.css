@@ -1,0 +1,46 @@
+.bondMes {
+  color: white;
+  background-color: black;
+  margin-left: 60px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 20px;
+  display: inline-block; /* You can use inline-block or block here */
+  margin-top: 60px;
+  max-width: 60%;
+}
+
+.bondImgContainer {
+  margin-left: 10px;
+  position:absolute;
+  bottom: 0px;
+}
+
+.bondImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+}
+
+.userMes {
+  color: white;
+  background-color: black;
+  position: relative;
+  float: right;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 20px;
+  margin-right: 10px;
+  margin-top: 20px;
+  max-width: 60%;
+  word-break: break-all;
+}
+
+.exchange {
+  position: relative;
+}

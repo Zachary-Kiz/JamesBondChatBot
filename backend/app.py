@@ -49,6 +49,6 @@ def talk():
     if prob.item() > 0.75:
         for intent in intents["intents"]:
             if tag == intent['tag']:
-                return jsonify({"message":f"{bot_name}: {random.choice(intent['responses'])}"}), 200
+                return jsonify({"message":f"{random.choice(intent['responses'])}"}), 200
     else:
-        return jsonify({"message": f"{bot_name}: I do not understand..."}), 200
+        return jsonify({"message": "I do not understand..."}), 200

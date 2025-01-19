@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
 }
 
 code {
@@ -13,5 +14,24 @@ code {
 }
 
 .container {
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  border: 2px solid black; /* Set the desired border thickness and color */
+  height: 90vh;
+  max-height: 90vh;
+  padding-top: 10px;
+  overflow-y: scroll;
+  background-color: white;
+}
+
+.bondTalk {
+  position: fixed;
+  bottom:10px;
   width: 30%;
+  left: 35%;
+  right: 35%;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }

@@ -1,62 +1,33 @@
-import React, {useState} from 'react';
+import React, {use, useEffect, useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import BondMessage from './App';
+import BondMessage from './components/BondMessages/BondMessage';
+import BondInput from './components/BondInput/BondInput';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <div className='container'>
-    <BondMessage message="Test" />
-    </div>
-    <BondInput></BondInput>
+    <BondContainer/>
   </React.StrictMode>
 );
 
-function BondInput() {
+function BondContainer() {
 
-  const [inputValue, setInputValue] = useState('');
+  const [messages, setMessages] = useState([]);
 
-  const handleKeyPress = async (event) => {
-
-    
-    if (event.key === 'Enter') {
-      // Function triggered when Enter key is pressed
-      console.log('Enter key pressed! Input Value:');
-      const body = {"sentence": inputValue};
-      const requestOptions = {
-        method: "POST",  // HTTP method
-        headers: {
-          "Content-Type": "application/json",  // Content type header
-        },
-        body: JSON.stringify(body),  // Convert data to JSON string
-      }
-
-      try {
-        const response = await fetch("http://127.0.0.1:5000/", requestOptions);
-        const responseJson = await response.json()
-        console.log(responseJson)
-        setInputValue('');
-      } catch (err) {
-        console.warn("test")
-      }
-      // You can perform any action here, e.g., form submission, API call, etc.
-      // Optionally, clear the input after pressing Enter
-      
-    }
-  };
-
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  };
+  useEffect(() => {
+    console.log(messages)
+  }, [messages])
 
   return (
-    <input id="bondTalk" type="text" 
-    value={inputValue}
-    onKeyDown={handleKeyPress}
-    onChange={handleInputChange}
-    ></input>
+    <div className='container'>
+    {messages.map((message, index) => (
+      <BondMessage key={index} message={message.message} input={message.input} ></BondMessage>
+    ))}
+    
+    <BondInput setMessages={setMessages}></BondInput>
+    </div>
   )
 }
 
